@@ -2,14 +2,14 @@ p6_git_branch_get() {
 
     local str=$(p6_git_symbolic_ref "HEAD")
 
-    local branch=${str#refs/head}
+    local branch=${str#refs/heads/}
 
     echo $branch
 }
 
 p6_git_org_repo_get() {
 
-    p6_git_remote "remote-url" "origin"
+    p6_git_remote "get-url" "origin"
 	cut -d: -f 2 | \
 	sed -e 's,\.git$,,'
 }
