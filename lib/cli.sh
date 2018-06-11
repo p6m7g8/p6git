@@ -1,49 +1,49 @@
 p6_git_init() {
 
-    git init "$@"
+    p6_log_or_run git init "$@"
 }
 
 p6_git_checkout() {
 
-    git checkout "$@"
+    p6_log_or_run git checkout "$@"
 }
 
 p6_git_reset() {
 
-    git reset "$@"
+    p6_log_or_run git reset "$@"
 }
 
 p6_git_commit() {
 
-    git commit "$@"
+    p6_log_or_run git commit "$@"
 }
 
 p6_git_add() {
 
-    git add "$@"
+    p6_log_or_run git add "$@"
 }
 
 p6_git_status() {
 
-    git status "$@"
+    p6_log_and_run git status "$@"
 }
 
 p6_git_push() {
 
-    git push "$@"
+    p6_log_or_run git push "$@"
 }
 
 p6_git_remote() {
 
-    git remote "$@"
+    p6_log_or_run git remote "$@"
 }
 
 p6_git_symbolic_ref() {
 
-    git symbolic-ref "$@"
+    p6_log_and_run git symbolic-ref "$@"
 }
 
 p6_git_rev_parse() {
 
-    git rev-parse "$@"
+    p6_log_and_run git rev-parse "$@"
 }
