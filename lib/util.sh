@@ -8,9 +8,18 @@ p6_git_branch_get() {
 
 p6_git_org_repo_get() {
 
-    p6_git_remote "get-url" "origin"
-	cut -d: -f 2 | \
-	sed -e 's,\.git$,,'
+    local url=$(p6_git_remote "get-url" "origin")
+    local repo=${${url##*/}%.git}
+
+    p6_return "$repo"
+}
+
+p6_git_org_org_get() {
+
+    local url=$(p6_git_remote "get-url" "origin")
+    local org=${${url%/*}##*/}
+
+    p6_return "$org"
 }
 
 p6_git_sha_short_get() {
@@ -22,5 +31,5 @@ p6_git_dirty_get() {
 
     local gstatus="$(p6_git_status "--porcelain" 2>/dev/null | tail -1)"
 
-     p6_string_blank "$gstatus" && p6_return_bool 1 || p6_return_bool 0
+    p6_string_blank "$gstatus" && p6_return_bool 1 || p6_return_bool 0
 }
