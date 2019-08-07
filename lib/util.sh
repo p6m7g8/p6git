@@ -8,7 +8,7 @@ p6_git_branch_get() {
 
 p6_git_org_repo_get() {
 
-    local url=$(p6_git_remote "get-url" "origin")
+    local url=$(p6_git_remote "get-url" "origin" 2>&1)
     local repo=${${url##*/}%.git}
 
     p6_return "$repo"
@@ -16,7 +16,7 @@ p6_git_org_repo_get() {
 
 p6_git_org_org_get() {
 
-    local url=$(p6_git_remote "get-url" "origin")
+    local url=$(p6_git_remote "get-url" "origin" 2>&1)
     local org=${${url%/*}##*/}
 
     p6_return "$org"
