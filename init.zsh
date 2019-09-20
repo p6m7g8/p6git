@@ -5,11 +5,5 @@ p6df::modules::p6git::external::brew() { }
 p6df::modules::p6git::init() {
 
     local dir=$P6_DFZ_SRC_DIR/p6m7g8/p6git
-
-    local file
-    for file in $dir/lib/*.sh; do
-         p6_file_load "$file"
-    done
+    p6_bootstrap "$dir"
 }
-
-p6df::modules::p6git::init
