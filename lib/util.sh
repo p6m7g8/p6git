@@ -2,11 +2,10 @@
 #<
 #
 # Function:
-#     $branch = p6_git_branch_get()
+#	unkown branch = p6_git_branch_get()
 #
-#
-# Return(s):
-#    $branch - 
+#  Returns:
+#	unkown - branch
 #
 #>
 ######################################################################
@@ -22,11 +21,10 @@ p6_git_branch_get() {
 #<
 #
 # Function:
-#     $repo = p6_git_org_repo_get()
+#	unkown repo = p6_git_org_repo_get()
 #
-#
-# Return(s):
-#    $repo - 
+#  Returns:
+#	unkown - repo
 #
 #>
 ######################################################################
@@ -42,11 +40,10 @@ p6_git_org_repo_get() {
 #<
 #
 # Function:
-#     $org = p6_git_org_org_get()
+#	unkown org = p6_git_org_org_get()
 #
-#
-# Return(s):
-#    $org - 
+#  Returns:
+#	unkown - org
 #
 #>
 ######################################################################
@@ -62,9 +59,7 @@ p6_git_org_org_get() {
 #<
 #
 # Function:
-#      = p6_git_sha_short_get()
-#
-#
+#	p6_git_sha_short_get()
 #
 #>
 ######################################################################
@@ -77,11 +72,7 @@ p6_git_sha_short_get() {
 #<
 #
 # Function:
-#     bool = p6_git_dirty_get()
-#
-#
-# Return(s):
-#     - 
+#	p6_git_dirty_get()
 #
 #>
 ######################################################################
