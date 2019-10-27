@@ -80,7 +80,16 @@ p6_git_dirty_get() {
 
     local gstatus="$(p6_git_status "--porcelain" 2>/dev/null | tail -1)"
 
-    local rc=$(p6_string_blank "$gstatus")
+    p6_string_blank "$gstatus"
+    local rc=$?
 
-    p6_return_bool "$rc"
+    p6_return_code_as_code "$rc"
+}
+
+p6_git_inside_tree() {
+
+    p6_git_rev_parse --is-inside-git-dir > /dev/null 2>&1
+    local rc=$?
+
+    p6_return_code_as_code "$rc"
 }
