@@ -1,11 +1,10 @@
 ######################################################################
 #<
 #
-# Function:
-#	unkown branch = p6_git_branch_get()
+# Function: str branch = p6_git_branch_get()
 #
 #  Returns:
-#	unkown - branch
+#	str - branch
 #
 #>
 ######################################################################
@@ -20,11 +19,10 @@ p6_git_branch_get() {
 ######################################################################
 #<
 #
-# Function:
-#	unkown repo = p6_git_org_repo_get()
+# Function: str repo = p6_git_org_repo_get()
 #
 #  Returns:
-#	unkown - repo
+#	str - repo
 #
 #>
 ######################################################################
@@ -39,11 +37,10 @@ p6_git_org_repo_get() {
 ######################################################################
 #<
 #
-# Function:
-#	unkown org = p6_git_org_org_get()
+# Function: str org = p6_git_org_org_get()
 #
 #  Returns:
-#	unkown - org
+#	str - org
 #
 #>
 ######################################################################
@@ -58,8 +55,7 @@ p6_git_org_org_get() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_git_sha_short_get()
+# Function: p6_git_sha_short_get()
 #
 #>
 ######################################################################
@@ -71,8 +67,10 @@ p6_git_sha_short_get() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_git_dirty_get()
+# Function: code rc = p6_git_dirty_get()
+#
+#  Returns:
+#	code - rc
 #
 #>
 ######################################################################
@@ -86,6 +84,16 @@ p6_git_dirty_get() {
     p6_return_code_as_code "$rc"
 }
 
+######################################################################
+#<
+#
+# Function: code rc = p6_git_inside_tree()
+#
+#  Returns:
+#	code - rc
+#
+#>
+######################################################################
 p6_git_inside_tree() {
 
     p6_git_rev_parse --is-inside-git-dir > /dev/null 2>&1
