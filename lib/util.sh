@@ -101,27 +101,3 @@ p6_git_inside_tree() {
 
     p6_return_code_as_code "$rc"
 }
-
-######################################################################
-#<
-#
-# Function: p6_git_submit(msg)
-#
-#  Args:
-#	msg - 
-#
-#>
-######################################################################
-p6_git_submit() {
-  local msg="$1"
-
-  # XXX: move to p6_github
-  local guid=$(p6_token_random "4")
-
-  p6_git_checkout -b "branch-${guid}"
-  p6_git_add .
-  p6_git_commit "-m $msg"
-  gh pr create -a $USER -f
-  p6_git_checkout master
-  git branch -D "branch-${guid}"
-}
