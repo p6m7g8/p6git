@@ -201,6 +201,20 @@ p6_git_p6_reset_head_ago_one() {
     p6_git_cmd reset HEAD^ "$@"
 }
 
+p6_git_p6_stash_list() {
+
+    p6_git_cmd stash list
+}
+
+p6_git_p6_remote() {
+
+    p6_git_cmd remote --verbose
+}
+
+p6_git_p6_add() {
+
+    p6_git_cmd add "$@"
+}
 ######################################################################
 #<
 #
@@ -209,8 +223,9 @@ p6_git_p6_reset_head_ago_one() {
 #>
 ######################################################################
 p6_git_p6_commit() {
+    local msg="$1"
 
-    p6_git_cmd commit --verbose "$@"
+    git commit --verbose -m "$msg"
 }
 
 ######################################################################
