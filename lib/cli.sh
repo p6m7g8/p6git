@@ -60,11 +60,23 @@ p6_git_p6_diff() {
 ######################################################################
 p6_git_p6_log() {
 
-  p6_git_cmd log log \
+  local branch=$(p6_git_branch_get)
+
+  local branches
+  local count
+  if p6_string_eq "master" "$branch"; then
+    count=-10
+  else
+    count="master..${branch}"
+  fi
+
+  git log \
     --graph \
-    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
     --abbrev-commit \
     --date=relative \
+    --decorate \
+    --pretty="format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'" \
+    $count \
     "$@"
 }
 
@@ -89,7 +101,7 @@ p6_git_p6_checkout() {
 ######################################################################
 p6_git_p6_branch() {
 
-  p6_git_cmd branch git branch --verbose --verbose "$@"
+  p6_git_cmd branch --verbose --verbose "$@"
 }
 
 ######################################################################
