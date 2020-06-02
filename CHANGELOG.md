@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/p6m7g8/p6git/compare/v1.0.2...v1.0.3) (2020-06-02)
+
+
+### Features
+
+* **cicd:** setups semantic-version ([#9](https://github.com/p6m7g8/p6git/issues/9)) ([8713047](https://github.com/p6m7g8/p6git/commit/8713047c28379d241e6c4d24671d8e871d43bfb6))
+* **cli:** adds p6_git_cmd() and uses internally ([#10](https://github.com/p6m7g8/p6git/issues/10)) ([486c89d](https://github.com/p6m7g8/p6git/commit/486c89de7a0b0953b83d67a9fc8bff3099315b5c))
+* **util:** uses p6_git_cmd() ([#11](https://github.com/p6m7g8/p6git/issues/11)) ([3750e90](https://github.com/p6m7g8/p6git/commit/3750e901f341deb76cadeaedde3b2d19825f2ae7))
+
 ### [1.0.2](https://github.com/p6m7g8/p6git/compare/v1.0.1...v1.0.2) (2020-05-29)
 
 ### 1.0.1 (2020-05-29)
