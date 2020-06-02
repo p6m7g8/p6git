@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/p6m7g8/p6git/compare/v1.0.3...v1.0.4) (2020-06-02)
+
+
+### Features
+
+* **cli:** converts .gitconfig[aliases] -> p6 funcs ([#13](https://github.com/p6m7g8/p6git/issues/13)) ([cc778a3](https://github.com/p6m7g8/p6git/commit/cc778a35341de7e0e54e72f21ba8d4318ae9a58c))
+
 ### [1.0.3](https://github.com/p6m7g8/p6git/compare/v1.0.2...v1.0.3) (2020-06-02)
 
 
