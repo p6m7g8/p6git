@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/p6m7g8/p6git/compare/v1.0.4...v1.0.5) (2020-06-02)
+
+
+### Features
+
+* **api:** adds _add(), _remote() funcs ([#16](https://github.com/p6m7g8/p6git/issues/16)) ([411b954](https://github.com/p6m7g8/p6git/commit/411b95488acbe075a8b2d25e7f556f1e5a381b16))
+* **log:** shows branch logs or just last 10 on master ([#15](https://github.com/p6m7g8/p6git/issues/15)) ([4d695fd](https://github.com/p6m7g8/p6git/commit/4d695fd9d06f4a2968cad336580ffe2747f66059))
+
 ### [1.0.4](https://github.com/p6m7g8/p6git/compare/v1.0.3...v1.0.4) (2020-06-02)
 
 
