@@ -4,6 +4,7 @@
 - p6_git_p6_branch()
 - p6_git_p6_branch_create()
 - p6_git_p6_checkout()
+- p6_git_p6_checkout_master()
 - p6_git_p6_clone()
 - p6_git_p6_commit(msg)
 - p6_git_p6_commit_last_edit()

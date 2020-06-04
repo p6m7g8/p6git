@@ -18,9 +18,9 @@ p6_git_cmd() {
 
     local log_type
     case $cmd in
-        *) log_type=p6_run_write_cmd ;;
-    esac    
-    
+	*) log_type=p6_run_write_cmd ;;
+    esac
+
     p6_run_code "$log_type git $cmd $@"
     local rc=$?
 
@@ -95,6 +95,18 @@ p6_git_p6_checkout() {
 ######################################################################
 #<
 #
+# Function: p6_git_p6_checkout_master()
+#
+#>
+######################################################################
+p6_git_p6_checkout_master() {
+
+    p6_git_p6_checkout "master"
+}
+
+######################################################################
+#<
+#
 # Function: p6_git_p6_branch()
 #
 #>
@@ -147,7 +159,7 @@ p6_git_p6_push() {
 #
 #>
 ######################################################################
-p6_git_p6_push_tags(){ 
+p6_git_p6_push_tags(){
 
     p6_git_cmd push --tags "$@"
 }
@@ -162,7 +174,7 @@ p6_git_p6_push_tags(){
 p6_git_p6_sync() {
 
   p6_git_p6_pull && \
-    p6_git_p6_push    
+    p6_git_p6_push
 }
 
 ######################################################################
