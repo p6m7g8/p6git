@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/p6m7g8/p6git/compare/v1.0.5...v1.0.6) (2020-06-04)
+
+
+### Features
+
+* **cli:** +p6_git_p6_checkout_master ([#18](https://github.com/p6m7g8/p6git/issues/18)) ([9ecad31](https://github.com/p6m7g8/p6git/commit/9ecad31a2817d7cd803fc6600e78904305c3084e))
+* **sync:** fixes function typos ([#17](https://github.com/p6m7g8/p6git/issues/17)) ([a20e9ba](https://github.com/p6m7g8/p6git/commit/a20e9badabf9eb6aa41881f5d7efd93d2171b665))
+
 ### [1.0.5](https://github.com/p6m7g8/p6git/compare/v1.0.4...v1.0.5) (2020-06-02)
 
 
