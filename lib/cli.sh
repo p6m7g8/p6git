@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 ######################################################################
 #<
 #
@@ -18,13 +19,13 @@ p6_git_cmd() {
 
     local log_type
     case $cmd in
-	*) log_type=p6_run_write_cmd ;;
+    *) log_type=p6_run_write_cmd ;;
     esac
 
     p6_run_code "$log_type git $cmd $@"
     local rc=$?
 
-    p6_return_code_as_code "$rc";
+    p6_return_code_as_code "$rc"
 }
 
 ######################################################################
@@ -36,7 +37,7 @@ p6_git_cmd() {
 ######################################################################
 p6_git_p6_status() {
 
-  p6_git_cmd status --ignore-submodules="${_git_status_ignore_submodules}" "$@"
+    p6_git_cmd status --ignore-submodules="${_git_status_ignore_submodules}" "$@"
 }
 
 ######################################################################
@@ -48,7 +49,19 @@ p6_git_p6_status() {
 ######################################################################
 p6_git_p6_diff() {
 
-  p6_git_cmd diff --no-ext-diff "$@"
+    p6_git_cmd diff --no-ext-diff "$@"
+}
+
+######################################################################
+#<
+#
+# Function: p6_git_p6_diff_head()
+#
+#>
+######################################################################
+p6_git_p6_diff_head() {
+
+    p6_git_p6_diff "HEAD" "$@"
 }
 
 ######################################################################
@@ -60,24 +73,24 @@ p6_git_p6_diff() {
 ######################################################################
 p6_git_p6_log() {
 
-  local branch=$(p6_git_branch_get)
+    local branch=$(p6_git_branch_get)
 
-  local branches
-  local count
-  if p6_string_eq "master" "$branch"; then
-    count=-10
-  else
-    count="master..${branch}"
-  fi
+    local branches
+    local count
+    if p6_string_eq "master" "$branch"; then
+        count=-10
+    else
+        count="master..${branch}"
+    fi
 
-  git log \
-    --graph \
-    --abbrev-commit \
-    --date=relative \
-    --decorate \
-    --pretty="format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'" \
-    $count \
-    "$@"
+    git log \
+        --graph \
+        --abbrev-commit \
+        --date=relative \
+        --decorate \
+        --pretty="format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'" \
+        $count \
+        "$@"
 }
 
 ######################################################################
@@ -89,7 +102,7 @@ p6_git_p6_log() {
 ######################################################################
 p6_git_p6_checkout() {
 
-  p6_git_cmd checkout "$@"
+    p6_git_cmd checkout "$@"
 }
 
 ######################################################################
@@ -113,7 +126,7 @@ p6_git_p6_checkout_master() {
 ######################################################################
 p6_git_p6_branch() {
 
-  p6_git_cmd branch --verbose --verbose "$@"
+    p6_git_cmd branch --verbose --verbose "$@"
 }
 
 ######################################################################
@@ -155,11 +168,11 @@ p6_git_p6_push() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_push_tags{()
+# Function: p6_git_p6_push_tags()
 #
 #>
 ######################################################################
-p6_git_p6_push_tags(){
+p6_git_p6_push_tags() {
 
     p6_git_cmd push --tags "$@"
 }
@@ -173,8 +186,8 @@ p6_git_p6_push_tags(){
 ######################################################################
 p6_git_p6_sync() {
 
-  p6_git_p6_pull && \
-    p6_git_p6_push
+    p6_git_p6_pull &&
+        p6_git_p6_push
 }
 
 ######################################################################
@@ -248,6 +261,19 @@ p6_git_p6_add() {
 
     p6_git_cmd add "$@"
 }
+
+######################################################################
+#<
+#
+# Function: p6_git_p6_add_all()
+#
+#>
+######################################################################
+p6_git_p6_add_all() {
+
+    p6_git_p6_add .
+}
+
 ######################################################################
 #<
 #
