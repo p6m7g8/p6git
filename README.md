@@ -1,4 +1,10 @@
-### ./lib/cli.sh:
+### init.zsh:
+- p6df::modules::p6git::deps()
+- p6df::modules::p6git::external::brew()
+- p6df::modules::p6git::init()
+- p6df::modules::p6git::version()
+
+### cli.sh:
 - code rc = p6_git_cmd(cmd, ...)
 - p6_git_p6_add()
 - p6_git_p6_add_all()
@@ -22,12 +28,13 @@
 - p6_git_p6_remote()
 - p6_git_p6_reset_head_ago_one()
 - p6_git_p6_reset_head_hard()
+- p6_git_p6_restore()
 - p6_git_p6_revert()
 - p6_git_p6_stash_list()
 - p6_git_p6_status()
 - p6_git_p6_sync()
 
-### ./lib/util.sh:
+### util.sh:
 - code rc = p6_git_dirty_get()
 - code rc = p6_git_inside_tree()
 - str branch = p6_git_branch_get()
