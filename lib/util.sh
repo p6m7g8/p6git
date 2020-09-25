@@ -10,8 +10,16 @@
 ######################################################################
 p6_git_branch_get() {
 
-    local str=$(p6_git_cmd symbolic-ref HEAD)
-    local branch=${str#refs/heads/}
+    local branch
+
+    local str
+    str=$(p6_git_cmd symbolic-ref HEAD 2>/dev/null)
+
+    if [ $? -ne 0 ]; then
+      branch='DETACHED'
+    else
+      branch=${str#refs/heads/}
+    fi
 
     p6_return_str "$branch"
 }
