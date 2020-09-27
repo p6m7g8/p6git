@@ -86,9 +86,10 @@ p6_git_p6_log() {
 
     local branch=$(p6_git_branch_get)
 
-    local branches
     local count
     if p6_string_eq "master" "$branch"; then
+        count=-10
+    elif p6_string_eq "DETACHED" "$branch"; then
         count=-10
     else
         count="master..${branch}"
