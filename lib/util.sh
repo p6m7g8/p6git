@@ -89,7 +89,7 @@ p6_git_sha_short_get() {
 ######################################################################
 p6_git_dirty_get() {
 
-    local gstatus="$(p6_git_cmd status --porcelain 2>/dev/null | tail -1)"
+    local gstatus="$(p6_git_cmd status 2>/dev/null | tail -1)"
 
     p6_string_blank "$gstatus"
     local rc=$?
