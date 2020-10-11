@@ -2,7 +2,6 @@
 - p6df::modules::p6git::deps()
 - p6df::modules::p6git::external::brew()
 - p6df::modules::p6git::init()
-- p6df::modules::p6git::version()
 
 ### cli.sh:
 - code rc = p6_git_cmd(cmd, ...)
