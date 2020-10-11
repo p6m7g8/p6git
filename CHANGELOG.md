@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/p6m7g8/p6git/compare/v1.0.7...v2.0.0) (2020-10-11)
+
+
+### Features
+
+* **p6_git_p6_log:** supports DETACHED HEAD wc ([#21](https://github.com/p6m7g8/p6git/issues/21)) ([bd90f89](https://github.com/p6m7g8/p6git/commit/bd90f89a04157a0ad2f8e22687c6f27f0422c01e))
+
+
+### Bug Fixes
+
+* **deps:** depends on `p6m7g8/p6common`, drop --porcelain, simplify _cmd() ([#22](https://github.com/p6m7g8/p6git/issues/22)) ([cf25e35](https://github.com/p6m7g8/p6git/commit/cf25e353b0675fca57e36d9b3ac073d7e403e373))
+* **p6_git_branch_get:** works in detached head state ([#20](https://github.com/p6m7g8/p6git/issues/20)) ([03de640](https://github.com/p6m7g8/p6git/commit/03de64074b766b0f9c67ab4e93aeddf9407e5569))
+
 ### [1.0.7](https://github.com/p6m7g8/p6git/compare/v1.0.6...v1.0.7) (2020-09-20)
 
 
