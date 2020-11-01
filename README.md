@@ -32,6 +32,7 @@
 - p6_git_p6_stash_list()
 - p6_git_p6_status()
 - p6_git_p6_sync()
+- p6_git_p6_update()
 
 ### util.sh:
 - code rc = p6_git_dirty_get()

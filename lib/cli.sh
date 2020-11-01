@@ -368,3 +368,17 @@ p6_git_p6_grep() {
 
     p6_git_cmd grep --word-regexp "$@"
 }
+
+######################################################################
+#<
+#
+# Function: p6_git_p6_update()
+#
+#>
+######################################################################
+p6_git_p6_update() {
+
+    p6_git_cmd "fetch" "upstream"
+    p6_git_p6_merge "upstream/master" "master"
+    p6_git_p6_push
+}
