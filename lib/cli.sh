@@ -60,12 +60,12 @@ p6_git_p6_diff() {
 
 p6_git_p6_diff_master() {
 
-    p6_git_diff "master" "$@"
+    p6_git_p6_diff "master" "$@"
 }
 
 p6_git_p6_diff_master() {
 
-    p6_git_diff "HEAD^" "$@"
+    p6_git_p6_diff "HEAD^" "$@"
 }
 
 p6_git_p6_rebase() {
