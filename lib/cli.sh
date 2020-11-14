@@ -5,8 +5,8 @@
 # Function: code rc = p6_git_cmd(cmd, ...)
 #
 #  Args:
-#	cmd - 
-#	... - 
+#	cmd -
+#	... -
 #
 #  Returns:
 #	code - rc
@@ -17,7 +17,7 @@ p6_git_cmd() {
     local cmd="$1"
     shift 1
 
-    p6_run_code "git $cmd $@"
+    p6_run_code "git $cmd $*"
     local rc=$?
 
     p6_return_code_as_code "$rc"
@@ -43,7 +43,7 @@ p6_git_p6_restore() {
 ######################################################################
 p6_git_p6_status() {
 
-    p6_git_cmd status --ignore-submodules="${_git_status_ignore_submodules}" "$@"
+    p6_git_cmd status --ignore-submodules="${_git_status_ignore_submodules:-}" "$@"
 }
 
 ######################################################################
@@ -56,6 +56,41 @@ p6_git_p6_status() {
 p6_git_p6_diff() {
 
     p6_git_cmd diff --no-ext-diff "$@"
+}
+
+p6_git_p6_diff_master() {
+
+    p6_git_diff "master" "$@"
+}
+
+p6_git_p6_diff_master() {
+
+    p6_git_diff "HEAD^" "$@"
+}
+
+p6_git_p6_rebase() {
+
+    p6_git_cmd rebase "$@"
+}
+
+p6_git_p6_rebase_continue() {
+
+    p6_git_p6_rebase --continue
+}
+
+p6_git_p6_rebase_abort() {
+
+    p6_git_p6_rebase --abort
+}
+
+p6_git_p6_reset() {
+
+    p6_git_cmd reset "$@"
+}
+
+p6_git_p6_git_reset_head_hard() {
+
+    p6_git_p6_reset --head --hard
 }
 
 ######################################################################
@@ -79,7 +114,8 @@ p6_git_p6_diff_head() {
 ######################################################################
 p6_git_p6_log() {
 
-    local branch=$(p6_git_branch_get)
+    local branch=
+    branch=$(p6_git_branch_get)
 
     local count
     if p6_string_eq "master" "$branch"; then
@@ -96,7 +132,7 @@ p6_git_p6_log() {
         --date=relative \
         --decorate \
         --pretty="format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'" \
-        $count \
+        "$count" \
         "$@"
 }
 
@@ -157,7 +193,7 @@ p6_git_p6_branch_create() {
 ######################################################################
 p6_git_p6_pull() {
 
-    p6_git_cmd pull --rebase --autostash --ff-only "$@"
+    p6_git_cmd pull --rebase --autostash --ff-only
 }
 
 ######################################################################
@@ -172,6 +208,10 @@ p6_git_p6_push() {
     p6_git_cmd push -u "$@"
 }
 
+p6_git_p6_push_f() {
+
+    p6_git_p6_push -f
+}
 ######################################################################
 #<
 #
@@ -287,7 +327,7 @@ p6_git_p6_add_all() {
 # Function: p6_git_p6_commit(msg)
 #
 #  Args:
-#	msg - 
+#	msg -
 #
 #>
 ######################################################################

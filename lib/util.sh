@@ -72,7 +72,7 @@ p6_git_org_org_get() {
 ######################################################################
 p6_git_sha_short_get() {
 
-    local sha=$(p6_git_cmd rev-parse --short HEAD)
+    local sha=$(p6_git_cmd rev-parse --short HEAD 2>/dev/null)
 
     p6_return_str "$sha"
 }
