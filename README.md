@@ -1,9 +1,50 @@
-### init.zsh:
+TAG LINE
+# .
+
+## Table of Contents
+
+
+### .
+- [.](#.)
+  - [Badges](#badges)
+  - [Distributions](#distributions)
+  - [Summary](#summary)
+  - [Contributing](#contributing)
+  - [Code of Conduct](#code-of-conduct)
+  - [Changes](#changes)
+    - [Usage](#usage)
+  - [Author](#author)
+
+### Badges
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/p6m7g8/.)
+[![Mergify](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/p6m7g8/./&style=flat)](https://mergify.io)
+
+## Summary
+
+## Contributing
+
+- [How to Contribute](CONTRIBUTING.md)
+
+## Code of Conduct
+
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+
+## Changes
+
+- [Change Log](CHANGELOG.md)
+
+### Usage
+
+#### init.zsh:
+
 - p6df::modules::p6git::deps()
 - p6df::modules::p6git::external::brew()
 - p6df::modules::p6git::init()
 
-### cli.sh:
+#### cli.sh:
+
 - code rc = p6_git_cmd(cmd, ...)
 - p6_git_p6_add()
 - p6_git_p6_add_all()
@@ -42,7 +83,8 @@
 - p6_git_p6_sync()
 - p6_git_p6_update()
 
-### util.sh:
+#### util.sh:
+
 - code rc = p6_git_dirty_get()
 - code rc = p6_git_inside_tree()
 - str branch = p6_git_branch_get()
@@ -50,3 +92,7 @@
 - str repo = p6_git_org_repo_get()
 - str sha = p6_git_sha_short_get()
 
+
+## Author
+
+Philip M . Gollucci <pgollucci@p6m7g8.com>
