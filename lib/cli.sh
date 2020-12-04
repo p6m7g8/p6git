@@ -73,11 +73,11 @@ p6_git_p6_diff_master() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_diff_master()
+# Function: p6_git_p6_diff_previous()
 #
 #>
 ######################################################################
-p6_git_p6_diff_master() {
+p6_git_p6_diff_previous() {
 
     p6_git_p6_diff "HEAD^" "$@"
 }

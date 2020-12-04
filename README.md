@@ -59,7 +59,7 @@
 - p6_git_p6_diff()
 - p6_git_p6_diff_head()
 - p6_git_p6_diff_master()
-- p6_git_p6_diff_master()
+- p6_git_p6_diff_previous()
 - p6_git_p6_fetch()
 - p6_git_p6_git_reset_head_hard()
 - p6_git_p6_grep()
