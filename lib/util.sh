@@ -114,3 +114,28 @@ p6_git_inside_tree() {
 
     p6_return_code_as_code "$rc"
 }
+
+######################################################################
+#<
+#
+# Function: str branch = p6_git_base_branch()
+#
+#  Returns:
+#	str - branch
+#
+#>
+######################################################################
+p6_git_base_branch() {
+
+  local out
+  out=$(p6_git_cmd info)
+
+  local branch
+  if p6_echo "$out" | grep -q 'master'; then
+    branch=master
+  else
+    branch=main
+  fi
+
+  p6_return_str "$branch"
+}

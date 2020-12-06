@@ -474,7 +474,11 @@ p6_git_p6_grep() {
 ######################################################################
 p6_git_p6_update() {
 
+    local base
+    base=$(p6_git_base_branch)
+
     p6_git_cmd "fetch" "upstream"
-    p6_git_p6_merge "upstream/master" "master"
+    p6_git_p6_merge "upstream/master" "$branch"
+    p6_git_p6_merge "upstream/main" "$branch"
     p6_git_p6_push
 }
