@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/p6m7g8/p6git/compare/v2.0.0...v2.1.0) (2020-12-06)
+
+
+### Features
+
+* **api:** adds several new convience functions for aliases ([#25](https://github.com/p6m7g8/p6git/issues/25)) ([d69d5d9](https://github.com/p6m7g8/p6git/commit/d69d5d96549a1571a8b979192acb4e972298f6bb))
+* **api:** begin master->main, +`p6_git_base_branch` ([#35](https://github.com/p6m7g8/p6git/issues/35)) ([9848f2d](https://github.com/p6m7g8/p6git/commit/9848f2d3da284a85e0aae78c5d39da68741d8326))
+* **api:** centralize ::version() ([9d95acc](https://github.com/p6m7g8/p6git/commit/9d95acc53a37288c2a803b5c6657ca089751cb24))
+* **cli:** +`p6_git_p6_update` ([#23](https://github.com/p6m7g8/p6git/issues/23)) ([c8a23a6](https://github.com/p6m7g8/p6git/commit/c8a23a61f7b68be0a2f56675536325065ad218ed))
+* **community:** adds CODE_OF_CONDUCT ([cf60998](https://github.com/p6m7g8/p6git/commit/cf60998c5b3a9d072df786d8c15b5948c37b9aba))
+* **github:** adds ISSUE_TEMPLATEs ([5c13b5d](https://github.com/p6m7g8/p6git/commit/5c13b5de67faa85097678403f9dd6efaac73e52d))
+
+
+### Bug Fixes
+
+* **api:** fix duplicate function name ([#34](https://github.com/p6m7g8/p6git/issues/34)) ([3bfb14a](https://github.com/p6m7g8/p6git/commit/3bfb14a409b685deddf0da3b4c1675b1566e7f11))
+* **diff:** fixes typos in function names ([#28](https://github.com/p6m7g8/p6git/issues/28)) ([47f9282](https://github.com/p6m7g8/p6git/commit/47f9282c9b980d44e5ad7e7e021eabf097010feb))
+
+
+* **community:** rely on the .github/ in the org ([#32](https://github.com/p6m7g8/p6git/issues/32)) ([847463b](https://github.com/p6m7g8/p6git/commit/847463b50765763088314a599410b6ab001c0fd2))
+* **docs:** fixes whitespace ([0e6bc86](https://github.com/p6m7g8/p6git/commit/0e6bc86187f1028fd3c7173aea31017888fde1b5))
+* **README:** fixes module expansion, adds CodeCov and Synk badges ([#33](https://github.com/p6m7g8/p6git/issues/33)) ([320a604](https://github.com/p6m7g8/p6git/commit/320a6042fec15d778cafaff44ff4083807e6a3d1))
+* **README:** updates to template v2.0 ([fd1e4af](https://github.com/p6m7g8/p6git/commit/fd1e4afa46bb520a957d9cd78d4b3b4e728dfc62))
+* **semantic:** no longer needed, defaults are fine ([dfbbfd6](https://github.com/p6m7g8/p6git/commit/dfbbfd6beae3f8befcc714cdbe6aa919f41e8ab7))
+
 ## [2.0.0](https://github.com/p6m7g8/p6git/compare/v1.0.7...v2.0.0) (2020-10-11)
 
 
