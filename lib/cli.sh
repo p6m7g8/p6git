@@ -221,7 +221,7 @@ p6_git_p6_log() {
     local branch
     branch=$(p6_git_branch_get)
     local base
-    base=$(p6_git_base_branch)
+    base=$(p6_git_branch_base_get)
 
     local count
     if p6_string_eq "master" "$branch"; then
