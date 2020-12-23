@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/p6m7g8/p6git/compare/v2.1.0...v2.1.1) (2020-12-23)
+
+
+### Features
+
+* **api:** 4 funcs ([#36](https://github.com/p6m7g8/p6git/issues/36)) ([78396b9](https://github.com/p6m7g8/p6git/commit/78396b912046181b8d86f7b59f8341afa94ff60d))
+
 ## [2.1.0](https://github.com/p6m7g8/p6git/compare/v2.0.0...v2.1.0) (2020-12-06)
 
 
