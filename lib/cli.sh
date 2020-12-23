@@ -26,22 +26,30 @@ p6_git_cmd() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_restore()
+# Function: p6_git_p6_restore(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_restore() {
+    shift 0
 
     p6_git_cmd restore --staged "$@"
 }
 ######################################################################
 #<
 #
-# Function: p6_git_p6_status()
+# Function: p6_git_p6_status(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_status() {
+    shift 0
 
     p6_git_cmd status --ignore-submodules="${_git_status_ignore_submodules:-}" "$@"
 }
@@ -49,11 +57,15 @@ p6_git_p6_status() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_diff()
+# Function: p6_git_p6_diff(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_diff() {
+    shift 0
 
     p6_git_cmd diff --no-ext-diff "$@"
 }
@@ -61,23 +73,34 @@ p6_git_p6_diff() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_diff_master()
+# Function: p6_git_p6_diff_default(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
-p6_git_p6_diff_master() {
+p6_git_p6_diff_default() {
+    shift 0
 
-    p6_git_p6_diff "master" "$@"
+    local branch
+    branch=$(p6_git_branch_base_get)
+
+    p6_git_p6_diff "$branch" "$@"
 }
 
 ######################################################################
 #<
 #
-# Function: p6_git_p6_diff_previous()
+# Function: p6_git_p6_diff_previous(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_diff_previous() {
+    shift 0
 
     p6_git_p6_diff "HEAD^" "$@"
 }
@@ -85,11 +108,15 @@ p6_git_p6_diff_previous() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_rebase()
+# Function: p6_git_p6_rebase(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_rebase() {
+    shift 0
 
     p6_git_cmd rebase "$@"
 }
@@ -121,11 +148,15 @@ p6_git_p6_rebase_abort() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_reset()
+# Function: p6_git_p6_reset(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_reset() {
+    shift 0
 
     p6_git_cmd reset "$@"
 }
@@ -133,11 +164,15 @@ p6_git_p6_reset() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_clean()
+# Function: p6_git_p6_clean(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_clean() {
+    shift 0
 
     p6_git_cmd clean "-fdx" "$@"
 }
@@ -157,11 +192,15 @@ p6_git_p6_git_reset_head_hard() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_diff_head()
+# Function: p6_git_p6_diff_head(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_diff_head() {
+    shift 0
 
     p6_git_p6_diff "HEAD" "$@"
 }
@@ -169,11 +208,15 @@ p6_git_p6_diff_head() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_log()
+# Function: p6_git_p6_log(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_log() {
+    shift 0
 
     local branch
     branch=$(p6_git_branch_get)
@@ -186,6 +229,8 @@ p6_git_p6_log() {
     elif p6_string_eq "main" "$branch"; then
         count=-10
     elif p6_string_eq "DETACHED" "$branch"; then
+        count=-10
+    elif p6_string_blank "$branch"; then
         count=-10
     else
         count="${base}..${branch}"
@@ -204,27 +249,39 @@ p6_git_p6_log() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_symbolic_ref(ref)
+# Function: str symbol = p6_git_p6_symbolic_ref(ref)
 #
 #  Args:
 #	ref -
+#
+#  Returns:
+#	str - symbol
 #
 #>
 ######################################################################
 p6_git_p6_symbolic_ref() {
     local ref="$1"
 
-    p6_git_cmd symbolic-ref "$ref" 2>/dev/null
+    local symbol
+    symbol=$(p6_git_cmd symbolic-ref "$ref" 2>/dev/null)
+    
+    symbol=$(p6_echo "$symbol" | sed -e 's,.*/,,')
+
+    p6_return_str "$symbol"
 }
 
 ######################################################################
 #<
 #
-# Function: p6_git_p6_checkout()
+# Function: p6_git_p6_checkout(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_checkout() {
+    shift 0
 
     p6_git_cmd checkout "$@"
 }
@@ -232,23 +289,30 @@ p6_git_p6_checkout() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_checkout_master()
+# Function: p6_git_p6_checkout_default()
 #
 #>
 ######################################################################
-p6_git_p6_checkout_master() {
+p6_git_p6_checkout_default() {
 
-    p6_git_p6_checkout "master"
+    local branch
+    branch=$(p6_git_branch_base_get)
+
+    p6_git_p6_checkout "$branch"
 }
 
 ######################################################################
 #<
 #
-# Function: p6_git_p6_branch()
+# Function: p6_git_p6_branch(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_branch() {
+    shift 0
 
     p6_git_cmd branch --verbose --verbose "$@"
 }
@@ -256,11 +320,15 @@ p6_git_p6_branch() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_branch_create()
+# Function: p6_git_p6_branch_create(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_branch_create() {
+    shift 0
 
     p6_git_p6_checkout -b "$@"
 }
@@ -280,11 +348,15 @@ p6_git_p6_pull() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_push()
+# Function: p6_git_p6_push(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_push() {
+    shift 0
 
     p6_git_cmd push -u "$@"
 }
@@ -303,11 +375,15 @@ p6_git_p6_push_f() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_push_tags()
+# Function: p6_git_p6_push_tags(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_push_tags() {
+    shift 0
 
     p6_git_cmd push --tags "$@"
 }
@@ -328,11 +404,15 @@ p6_git_p6_sync() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_merge()
+# Function: p6_git_p6_merge(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_merge() {
+    shift 0
 
     p6_git_cmd merge "$@"
 }
@@ -340,11 +420,15 @@ p6_git_p6_merge() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_reset_head_hard()
+# Function: p6_git_p6_reset_head_hard(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_reset_head_hard() {
+    shift 0
 
     p6_git_cmd reset HEAD --hard "$@"
 }
@@ -352,11 +436,15 @@ p6_git_p6_reset_head_hard() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_reset_head_ago_one()
+# Function: p6_git_p6_reset_head_ago_one(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_reset_head_ago_one() {
+    shift 0
 
     p6_git_cmd reset HEAD^ "$@"
 }
@@ -388,11 +476,15 @@ p6_git_p6_remote() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_add()
+# Function: p6_git_p6_add(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_add() {
+    shift 0
 
     p6_git_cmd add "$@"
 }
@@ -428,11 +520,15 @@ p6_git_p6_commit() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_commit_last_edit()
+# Function: p6_git_p6_commit_last_edit(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_commit_last_edit() {
+    shift 0
 
     p6_git_p6_commit --amend "$@"
 }
@@ -440,11 +536,15 @@ p6_git_p6_commit_last_edit() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_fetch()
+# Function: p6_git_p6_fetch(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_fetch() {
+    shift 0
 
     p6_git_cmd fetch --all "$@"
 }
@@ -452,11 +552,15 @@ p6_git_p6_fetch() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_clone()
+# Function: p6_git_p6_clone(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_clone() {
+    shift 0
 
     p6_git_cmd clone --resurse-submodules "$@"
 }
@@ -464,11 +568,15 @@ p6_git_p6_clone() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_revert()
+# Function: p6_git_p6_revert(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_revert() {
+    shift 0
 
     p6_git_cmd revert "$@"
 }
@@ -476,11 +584,15 @@ p6_git_p6_revert() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_grep_files()
+# Function: p6_git_p6_grep_files(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_grep_files() {
+    shift 0
 
     p6_git_cmd grep --files-with-match "$@"
 }
@@ -488,11 +600,15 @@ p6_git_p6_grep_files() {
 ######################################################################
 #<
 #
-# Function: p6_git_p6_grep()
+# Function: p6_git_p6_grep(...)
+#
+#  Args:
+#	... - 
 #
 #>
 ######################################################################
 p6_git_p6_grep() {
+    shift 0
 
     p6_git_cmd grep --word-regexp "$@"
 }
