@@ -10,18 +10,29 @@
 ######################################################################
 p6_git_branch_get() {
 
-    local branch
+  local branch
 
-    local str
-    str=$(p6_git_cmd symbolic-ref HEAD 2>/dev/null)
+  branch=$(p6_git_p6_symbolic_ref "HEAD")
 
-    if [ $? -ne 0 ]; then
-      branch='DETACHED'
-    else
-      branch=${str#refs/heads/}
-    fi
+  p6_return_str "$branch"
+}
 
-    p6_return_str "$branch"
+######################################################################
+#<
+#
+# Function: str branch = p6_git_branch_base_get()
+#
+#  Returns:
+#	str - branch
+#
+#>
+######################################################################
+p6_git_branch_base_get() {
+
+  local branch
+  branch=$(p6_git_p6_symbolic_ref "remotes/origin/HEAD")
+
+  p6_return_str "$branch"
 }
 
 ######################################################################
@@ -118,24 +129,20 @@ p6_git_inside_tree() {
 ######################################################################
 #<
 #
-# Function: str branch = p6_git_base_branch()
-#
-#  Returns:
-#	str - branch
+# Function: p6_git_clobber()
 #
 #>
 ######################################################################
-p6_git_base_branch() {
-
-  local out
-  out=$(p6_git_cmd info)
+p6_git_clobber() {
 
   local branch
-  if p6_echo "$out" | grep -q 'master'; then
-    branch=master
-  else
-    branch=main
-  fi
+  branch=$(p6_git_branch_get)
 
-  p6_return_str "$branch"
+  p6_git_p6_checkout "scratch"
+  p6_git_p6_checkout "$branch"
+  p6_git_p6_fetch "origin"
+  p6_git_p6_reset "--hard" "origin/$branch"
+  p6_git_p6_clean
+
+  p6_return_void
 }

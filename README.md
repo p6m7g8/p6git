@@ -55,6 +55,7 @@
 - p6_git_p6_branch_create()
 - p6_git_p6_checkout()
 - p6_git_p6_checkout_master()
+- p6_git_p6_clean()
 - p6_git_p6_clone()
 - p6_git_p6_commit(msg)
 - p6_git_p6_commit_last_edit()
@@ -83,6 +84,7 @@
 - p6_git_p6_revert()
 - p6_git_p6_stash_list()
 - p6_git_p6_status()
+- p6_git_p6_symbolic_ref(ref)
 - p6_git_p6_sync()
 - p6_git_p6_update()
 
@@ -90,7 +92,8 @@
 
 - code rc = p6_git_dirty_get()
 - code rc = p6_git_inside_tree()
-- str branch = p6_git_base_branch()
+- p6_git_clobber()
+- str branch = p6_git_branch_base_get()
 - str branch = p6_git_branch_get()
 - str org = p6_git_org_org_get()
 - str repo = p6_git_org_repo_get()

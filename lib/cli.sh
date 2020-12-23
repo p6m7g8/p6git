@@ -133,6 +133,18 @@ p6_git_p6_reset() {
 ######################################################################
 #<
 #
+# Function: p6_git_p6_clean()
+#
+#>
+######################################################################
+p6_git_p6_clean() {
+
+    p6_git_cmd clean "-fdx" "$@"
+}
+
+######################################################################
+#<
+#
 # Function: p6_git_p6_git_reset_head_hard()
 #
 #>
@@ -163,16 +175,20 @@ p6_git_p6_diff_head() {
 ######################################################################
 p6_git_p6_log() {
 
-    local branch=
+    local branch
     branch=$(p6_git_branch_get)
+    local base
+    base=$(p6_git_base_branch)
 
     local count
     if p6_string_eq "master" "$branch"; then
         count=-10
+    elif p6_string_eq "main" "$branch"; then
+        count=-10
     elif p6_string_eq "DETACHED" "$branch"; then
         count=-10
     else
-        count="master..${branch}"
+        count="${base}..${branch}"
     fi
 
     git log \
@@ -183,6 +199,22 @@ p6_git_p6_log() {
         --pretty="format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'" \
         "$count" \
         "$@"
+}
+
+######################################################################
+#<
+#
+# Function: p6_git_p6_symbolic_ref(ref)
+#
+#  Args:
+#	ref -
+#
+#>
+######################################################################
+p6_git_p6_symbolic_ref() {
+    local ref="$1"
+
+    p6_git_cmd symbolic-ref "$ref" 2>/dev/null
 }
 
 ######################################################################
@@ -478,7 +510,6 @@ p6_git_p6_update() {
     base=$(p6_git_base_branch)
 
     p6_git_cmd "fetch" "upstream"
-    p6_git_p6_merge "upstream/master" "$branch"
-    p6_git_p6_merge "upstream/main" "$branch"
+    p6_git_p6_merge "upstream/$base" "$base"
     p6_git_p6_push
 }
