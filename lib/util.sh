@@ -30,7 +30,7 @@ p6_git_branch_get() {
 p6_git_branch_base_get() {
 
   local branch
-  branch=$(p6_git_p6_symbolic_ref "remotes/origin/HEAD")
+  branch=$(p6_git_p6_symbolic_ref "refs/remotes/origin/HEAD")
 
   p6_return_str "$branch"
 }
