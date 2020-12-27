@@ -140,7 +140,7 @@ p6_git_clobber() {
 
   p6_git_p6_checkout "scratch"
   p6_git_p6_checkout "$branch"
-  p6_git_p6_fetch "origin"
+  p6_git_p6_fetch
   p6_git_p6_reset "--hard" "origin/$branch"
   p6_git_p6_clean
 
