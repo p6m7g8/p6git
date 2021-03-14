@@ -38,15 +38,19 @@
 
 - [Change Log](CHANGELOG.md)
 
-### Usage
+## Usage
 
-#### init.zsh:
+### p6git:
+
+#### p6git/init.zsh:
 
 - p6df::modules::p6git::deps()
 - p6df::modules::p6git::external::brew()
 - p6df::modules::p6git::init()
 
-#### cli.sh:
+### ../p6git/lib:
+
+#### ../p6git/lib/cli.sh:
 
 - code rc = p6_git_cmd(cmd, ...)
 - p6_git_p6_add(...)
@@ -87,8 +91,7 @@
 - p6_git_p6_sync()
 - p6_git_p6_update()
 - str symbol = p6_git_p6_symbolic_ref(ref)
-
-#### util.sh:
+#### ../p6git/lib/util.sh:
 
 - code rc = p6_git_dirty_get()
 - code rc = p6_git_inside_tree()
